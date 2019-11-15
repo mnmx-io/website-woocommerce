@@ -1,0 +1,27 @@
+{
+  "name": "conserv-shop",
+  "version": "1.2.0",
+  "description": "Theme for Conserv",
+  "author": "Kyle Evans",
+  "private": true,
+  "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "postcss-cli": "^6.1.2",
+    "replace-in-file": "^4.0.0",
+    "sass": "^1.19.0"
+  },
+  "scripts": {
+    "sass": "sass src/sass/style.scss style.css",
+    "watch": "sass src/sass/style.scss style.css --watch",
+    "autoprefixer": "postcss style.css --replace --no-map --use autoprefixer",
+    "build": "npm run sass && npm run autoprefixer",
+    "replace:functions": "replace-in-file \"/^define\\( 'CONSERV_VERSION'.*$/m\" \"define( 'CONSERV_VERSION', '$npm_package_version' );\" functions.php --is-regex",
+    "replace:css": "replace-in-file /Version:.*$/m \"Version: $npm_package_version\" src/sass/style.scss --is-regex",
+    "postversion": "npm run replace:functions && npm run replace:css && npm run build"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 0.2%",
+    "not dead"
+  ]
+}
