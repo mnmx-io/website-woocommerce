@@ -254,31 +254,6 @@ function conserv_close_product_description_wrapper() {
     echo '</div> <!-- /.conserv-product-description-wrapper -->';
 }
 
-function conserv_product_secondary_pane() {
-
-    ?>
-
-    <div class="conserv-product-secondary-pane">
-
-        <?php echo wpautop( get_post_meta( get_the_ID(), 'secondary_pane', true ) ); ?>
-
-    </div> <!-- /.conserv-product-secondary-pane -->
-
-    <?php
-
-}
-
-/**
- * Product page title override
- */
-function conserv_template_single_title_override() {
-
-    $title_override = get_post_meta( get_the_ID(), 'page_title_override', true );
-
-    echo '<h1 class="product_title entry-title">' . esc_html( $title_override ) . '</h1>';
-
-}
-
 /**
  * Show product description
  */
@@ -333,6 +308,8 @@ add_filter( 'storefront_register_nav_menus', 'conserv_reigster_nav_menus' );
 // Meta fields
 require_once dirname( __FILE__ ) . '/includes/meta.php';
 
+
+// Add multiple products to cart via URL
 function woocommerce_maybe_add_multiple_products_to_cart() {
 // Make sure WC is installed, and add-to-cart qauery arg exists, and contains at least one comma.
 if ( ! class_exists( 'WC_Form_Handler' ) || empty( $_REQUEST['add-to-cart'] ) || false === strpos( $_REQUEST['add-to-cart'], ',' ) ) {
