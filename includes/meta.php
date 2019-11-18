@@ -3,36 +3,6 @@
  * Meta boxes and fields
  */
 
-function conserv_product_page_options_meta_box() {
-
-    $cmb = new_cmb2_box( array(
-        'id' => 'conserv_product_page_options_meta_box',
-        'title' => esc_html__( 'Product Page Options', 'conserv' ),
-        'object_types' => array( 'product' ),
-    ) );
-
-    $cmb->add_field( array(
-        'name' => esc_html__( 'Override Page Title', 'conserv' ),
-        'id' => 'page_title_override',
-        'type' => 'text',
-    ) );
-
-    $cmb->add_field( array(
-        'name' => esc_html__( 'Secondary Pane', 'conserv' ),
-        'id' => 'show_secondary_pane',
-        'type' => 'checkbox',
-        'desc' => esc_html__( 'Show secondary pane next to product descrpition', 'conserv' ),
-    ) );
-
-    $cmb->add_field( array(
-        'name' => esc_html__( 'Secondary Pane Content', 'conserv' ),
-        'id' => 'secondary_pane',
-        'type' => 'wysiwyg',
-    ) );
-
-}
-add_action( 'cmb2_admin_init', 'conserv_product_page_options_meta_box' );
-
 /**
  * Theme options
  */

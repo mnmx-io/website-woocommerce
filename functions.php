@@ -35,36 +35,6 @@ function conserv_template_setup() {
     add_action( 'storefront_before_footer', 'conserv_footer_cta' );
 
     // Product page
-    remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
-    remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
-    add_action( 'woocommerce_single_product_summary', 'conserv_show_product_description', 7 );
-    remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
-    add_action( 'woocommerce_before_single_product_summary', 'woocommerce_template_single_title', 5 );
-    remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
-    remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
-
-    if ( is_singular( 'product' ) ) {
-
-        $title_override = get_post_meta( get_the_ID(), 'page_title_override', true );
-
-        if ( !empty( $title_override ) ) {
-
-            remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_template_single_title', 5 );
-            add_action( 'woocommerce_before_single_product_summary', 'conserv_template_single_title_override', 5 );
-
-        }
-
-        $show_secondary_pane = get_post_meta( get_the_ID(), 'show_secondary_pane', true );
-
-        if ( $show_secondary_pane ) {
-
-            add_action( 'woocommerce_before_single_product_summary', 'conserv_open_product_description_wrapper', 999 );
-            add_action( 'woocommerce_after_single_product_summary', 'conserv_close_product_description_wrapper', 8 );
-            add_action( 'woocommerce_after_single_product_summary', 'conserv_product_secondary_pane', 4 );
-
-        }
-
-    }
 
 }
 add_action( 'wp_head', 'conserv_template_setup' );
