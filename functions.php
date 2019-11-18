@@ -337,3 +337,8 @@ foreach ( $product_ids as $product_id ) {
 
  // Fire before the WC_Form_Handler::add_to_cart_action callback.
  add_action( 'wp_loaded',        'woocommerce_maybe_add_multiple_products_to_cart', 15 );
+
+
+ // Remove link to product page in cart
+
+add_filter( 'woocommerce_cart_item_permalink', '__return_null' );
