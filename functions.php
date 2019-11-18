@@ -341,4 +341,10 @@ foreach ( $product_ids as $product_id ) {
 
  // Remove link to product page in cart
 
-add_filter( 'woocommerce_cart_item_permalink', '__return_null' );
+add_filter( 'conserv_cart_item_permalink', '__return_null' );
+
+// Remove "added to cart" messaging
+add_filter( 'conserv_add_to_cart_message_html', 'empty_wc_add_to_cart_message');
+function empty_wc_add_to_cart_message( $message, $products ) {
+    return '';
+};
