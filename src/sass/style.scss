@@ -34,7 +34,7 @@ select {
 }
 
 body {
-    background-color: $color__gray;
+    /*background-color: $color__gray; */
     color: $color__text;
 }
 
@@ -126,6 +126,7 @@ body .col-full {
 body.woocommerce-active .site-header .site-branding {
     float: none;
     width: auto;
+    margin-top: -1rem;
 }
 
 .conserv-main-navigation,
@@ -201,6 +202,8 @@ body.woocommerce-active .site-header .site-branding {
     align-items: center;
     margin: 0;
     padding: 0;
+    margin-bottom: 1rem;
+    margin-top: -.50rem;
 
     li {
         margin: .5rem;

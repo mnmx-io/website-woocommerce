@@ -126,7 +126,7 @@ select {
 }
 
 body {
-  background-color: #eaeaea;
+  /*background-color: $color__gray; */
   color: #0e0e0e;
 }
 
@@ -163,7 +163,6 @@ input[type=button],
   border: 1px solid #089cad;
   border: 1px solid #089cad;
   border-radius: 6px;
-  -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
   opacity: 1;
   -webkit-appearance: none;
@@ -219,7 +218,6 @@ body .col-full {
   border-bottom: none;
 }
 .site-header .col-full {
-  display: -webkit-box;
   display: flex;
 }
 .site-header .site-branding img {
@@ -229,16 +227,15 @@ body .col-full {
 body.woocommerce-active .site-header .site-branding {
   float: none;
   width: auto;
+  margin-top: -1rem;
 }
 
 .conserv-main-navigation ul,
 .conserv-footer-primary-navigation ul,
 .conserv-footer-secondary-navigation ul {
   list-style: none;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   margin: 0;
   padding: 0;
 }
@@ -265,12 +262,10 @@ body.woocommerce-active .site-header .site-branding {
 }
 
 .conserv-main-navigation {
-  -webkit-box-flex: 1;
-          flex: 1;
+  flex: 1;
 }
 .conserv-main-navigation ul {
-  -webkit-box-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .conserv-footer-primary-navigation {
@@ -299,12 +294,12 @@ body.woocommerce-active .site-header .site-branding {
 
 .conserv-header-ctas {
   list-style: none;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   margin: 0;
   padding: 0;
+  margin-bottom: 1rem;
+  margin-top: -0.5rem;
 }
 .conserv-header-ctas li {
   margin: 0.5rem;
@@ -414,14 +409,11 @@ body.storefront-full-width-content.single-product div.product .summary,
 }
 
 .conserv-product-description-wrapper {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: start;
-          align-items: flex-start;
+  align-items: flex-start;
 }
 .conserv-product-description-wrapper > * {
-  -webkit-box-flex: 1;
-          flex: 1;
+  flex: 1;
 }
 .conserv-product-description-wrapper .summary {
   z-index: 10;
@@ -446,3 +438,5 @@ body.storefront-full-width-content.single-product div.product .summary,
 .single-product div.product {
   overflow: visible;
 }
+
+/*# sourceMappingURL=style.css.map */
