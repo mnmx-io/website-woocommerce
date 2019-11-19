@@ -439,4 +439,8 @@ body.storefront-full-width-content.single-product div.product .summary,
   overflow: visible;
 }
 
+.variation-Linkedto {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */
