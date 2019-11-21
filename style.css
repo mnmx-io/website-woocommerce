@@ -233,76 +233,6 @@ body.woocommerce-active .site-header .site-branding {
   margin-top: -1rem;
 }
 
-.conserv-main-navigation ul,
-.conserv-footer-primary-navigation ul,
-.conserv-footer-secondary-navigation ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-}
-.conserv-main-navigation ul ul,
-.conserv-footer-primary-navigation ul ul,
-.conserv-footer-secondary-navigation ul ul {
-  display: none;
-}
-.conserv-main-navigation a,
-.conserv-footer-primary-navigation a,
-.conserv-footer-secondary-navigation a {
-  display: inline-block;
-  padding: 10px;
-  color: #0e0e0e;
-  text-decoration: none;
-}
-.conserv-main-navigation a:hover, .conserv-main-navigation a:focus,
-.conserv-footer-primary-navigation a:hover,
-.conserv-footer-primary-navigation a:focus,
-.conserv-footer-secondary-navigation a:hover,
-.conserv-footer-secondary-navigation a:focus {
-  color: #089cad;
-  text-decoration: none;
-}
-
-.conserv-footer-primary-navigation {
-  font-size: 1.125rem;
-}
-.conserv-footer-primary-navigation a {
-  padding: 10px 20px;
-}
-
-.conserv-footer-secondary-navigation {
-  margin-bottom: 1rem;
-  font-size: 0.75rem;
-}
-.conserv-footer-secondary-navigation a {
-  margin: 10px 0;
-  padding: 0 20px;
-  border-right: 1px solid #0e0e0e;
-}
-.conserv-footer-secondary-navigation ul > li:last-child > a {
-  border-right: none;
-}
-
-.site-header ul.menu li.current-menu-item > a {
-  color: #0e0e0e;
-}
-
-@media screen and (max-width: 980px) {
-  .site-header .site-logo-anchor img, .site-header .site-logo-link img, .site-header .custom-logo-link img {
-    margin: 0 auto;
-  }
-
-  .conserv-main-navigation ul,
-.conserv-header-ctas {
-    display: block;
-    text-align: center;
-  }
-  .conserv-main-navigation ul li,
-.conserv-header-ctas li {
-    display: inline-block;
-  }
-}
 .site-footer {
   padding-top: 2rem;
   background-color: #2C4251;
@@ -312,17 +242,14 @@ body.woocommerce-active .site-header .site-branding {
   text-decoration: none;
   color: #ffffff;
 }
-.site-footer .site-branding {
-  float: none;
-  width: 100%;
+
+.conserv-footer-columns {
+  display: flex;
+  margin: 0 -1rem;
 }
-.site-footer .site-branding img {
-  display: block;
-  max-width: 145px;
-  margin: 0 auto;
-}
-.site-footer .site-info {
-  display: none;
+.conserv-footer-columns .footer-column {
+  flex: 1;
+  margin: 0 1rem;
 }
 
 .woocommerce-message,

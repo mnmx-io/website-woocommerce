@@ -2,6 +2,8 @@
 
 define( 'CONSERV_VERSION', '1.2.0' );
 
+$home_url = 'https://conserv.io';
+
 /**
  * Add and remove actions in Storefront template
  */
@@ -22,10 +24,8 @@ function conserv_template_setup() {
 
     // Footer
     remove_action( 'storefront_footer', 'storefront_credit', 20 );
-    add_action( 'storefront_footer', 'conserv_footer_primary_nav', 10 );
-    add_action( 'storefront_footer', 'conserv_footer_secondary_nav', 20 );
-    add_action( 'storefront_footer', 'conserv_site_branding', 30 );
     remove_action( 'storefront_footer', 'storefront_handheld_footer_bar', 999 );
+    add_action( 'storefront_footer', 'conserv_footer' );
 
     // Product page
 
@@ -37,13 +37,14 @@ add_action( 'wp_head', 'conserv_template_setup' );
  */
 function conserv_site_branding() {
 
+    global $home_url;
+
     ?>
 
     <div class="site-branding">
 
         <?php
 
-        $home_url = 'https://conserv.io';
         $logo = get_theme_mod( 'custom_logo' );
 
         if ( $logo ) {
@@ -70,44 +71,47 @@ function conserv_site_branding() {
 }
 
 /**
- * Footer primary navigation
+ * Conserv Footer
  */
-function conserv_footer_primary_nav() {
+function conserv_footer() {
+
+    global $home_url;
 
     ?>
 
-    <nav class="conserv-footer-primary-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'storefront' ); ?>">
-		<?php
-		wp_nav_menu(
-			array(
-				'theme_location'  => 'footer-primary',
-				'container_class' => 'conserv-footer-primary-navigation',
-			)
-		);
-		?>
-	</nav>
+    <div class="conserv-footer-columns">
 
-    <?php
+        <div class="footer-column">
+            <a href="<?php echo esc_url( $home_url ); ?>">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/conserv-logo-white.png" alt="Conserv">
+            </a>
+        </div> <!-- /.site-branding -->
 
-}
+        <div class="footer-column">
+    		<?php
+    		wp_nav_menu(
+    			array(
+    				'theme_location'  => 'footer-primary',
+    				'container_class' => 'conserv-footer-primary-navigation',
+                    'fallback_cb' => false,
+    			)
+    		);
+    		?>
+    	</div> <!-- /.footer-column -->
 
-/**
- * Footer secondary navigation
- */
-function conserv_footer_secondary_nav() {
+        <div class="footer-column">
+            <?php
+    		wp_nav_menu(
+    			array(
+    				'theme_location'  => 'footer-secondary',
+    				'container_class' => 'conserv-footer-secondary-navigation',
+                    'fallback_cb' => false,
+    			)
+    		);
+    		?>
+        </div> <!-- /.footer-column -->
 
-    ?>
-
-    <nav class="conserv-footer-secondary-navigation" role="navigation" aria-label="<?php esc_html_e( 'Secondary Navigation', 'storefront' ); ?>">
-		<?php
-		wp_nav_menu(
-			array(
-				'theme_location'  => 'footer-secondary',
-				'container_class' => 'conserv-footer-secondary-navigation',
-			)
-		);
-		?>
-	</nav>
+    </div> <!-- /.conserv-footer-columns -->
 
     <?php
 

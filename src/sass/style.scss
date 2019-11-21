@@ -132,84 +132,6 @@ body.woocommerce-active .site-header .site-branding {
     margin-top: -1rem;
 }
 
-.conserv-main-navigation,
-.conserv-footer-primary-navigation,
-.conserv-footer-secondary-navigation {
-
-    ul {
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        padding: 0;
-    }
-
-    ul ul {
-        display: none;
-    }
-
-    a {
-        display: inline-block;
-        padding: 10px;
-        color: $color__text;
-        text-decoration: none;
-
-        &:hover,
-        &:focus {
-            color: $color__primary;
-            text-decoration: none;
-        }
-
-    }
-
-}
-.conserv-footer-primary-navigation {
-    font-size: 1.125rem;
-
-    a {
-        padding: 10px 20px;
-    }
-
-}
-.conserv-footer-secondary-navigation {
-    margin-bottom: 1rem;
-    font-size: 0.75rem;
-
-    a {
-        margin: 10px 0;
-        padding: 0 20px;
-        border-right: 1px solid $color__text;;
-    }
-
-    ul > li:last-child > a {
-        border-right: none;
-    }
-
-}
-
-.site-header ul.menu li.current-menu-item > a {
-    color: $color__text;
-}
-
-@media screen and ( max-width: 980px ) {
-
-    .site-header .site-logo-anchor img, .site-header .site-logo-link img, .site-header .custom-logo-link img {
-        margin: 0 auto;
-    }
-
-    .conserv-main-navigation ul,
-    .conserv-header-ctas {
-        display: block;
-        text-align: center;
-
-        li {
-            display: inline-block;
-        }
-
-    }
-
-}
-
 .site-footer {
     padding-top: 2rem;
     background-color: #2C4251;
@@ -220,20 +142,15 @@ body.woocommerce-active .site-header .site-branding {
         color: #ffffff;
     }
 
-    .site-branding {
-        float: none;
-        width: 100%;
+}
 
-        img {
-            display: block;
-            max-width: 145px;
-            margin: 0 auto;
-        }
+.conserv-footer-columns {
+    display: flex;
+    margin: 0 -1rem;
 
-    }
-
-    .site-info {
-        display: none;
+    .footer-column {
+        flex: 1;
+        margin: 0 1rem;
     }
 
 }
