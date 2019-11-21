@@ -91,8 +91,8 @@ function conserv_footer() {
     		<?php
     		wp_nav_menu(
     			array(
-    				'theme_location'  => 'footer-primary',
-    				'container_class' => 'conserv-footer-primary-navigation',
+    				'theme_location'  => 'footer1',
+    				'container_class' => 'conserv-footer-menu',
                     'fallback_cb' => false,
     			)
     		);
@@ -103,8 +103,8 @@ function conserv_footer() {
             <?php
     		wp_nav_menu(
     			array(
-    				'theme_location'  => 'footer-secondary',
-    				'container_class' => 'conserv-footer-secondary-navigation',
+    				'theme_location'  => 'footer2',
+    				'container_class' => 'conserv-footer-menu',
                     'fallback_cb' => false,
     			)
     		);
@@ -193,9 +193,8 @@ add_filter( 'woocommerce_subscriptions_product_price_string', 'conserv_change_si
 function conserv_reigster_nav_menus( $menus ) {
 
     return array(
-        'primary' => __( 'Primary Menu', 'conserv' ),
-        'footer-primary' => __( 'Footer Primary Menu', 'conserv' ),
-        'footer-secondary' => __( 'Footer Secondary Menu', 'conserv2' ),
+        'footer1' => __( 'Footer - First Column', 'conserv' ),
+        'footer2' => __( 'Footer - Second Column', 'conserv2' ),
     );
 
 }
