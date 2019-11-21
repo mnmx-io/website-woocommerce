@@ -1,6 +1,6 @@
 <?php
 
-define( 'CONSERV_VERSION', '1.2.0' );
+define( 'CONSERV_VERSION', '1.3.0' );
 
 $home_url = 'https://conserv.io';
 
