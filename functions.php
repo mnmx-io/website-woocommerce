@@ -31,9 +31,6 @@ function conserv_template_setup() {
     add_action( 'storefront_footer', 'conserv_site_branding', 30 );
     remove_action( 'storefront_footer', 'storefront_handheld_footer_bar', 999 );
 
-    // Before footer
-    add_action( 'storefront_before_footer', 'conserv_footer_cta' );
-
     // Product page
 
 }
@@ -181,31 +178,6 @@ function conserv_header_ctas() {
         </li>
 
     </ul>
-
-    <?php
-
-}
-
-/**
- * Footer CTA
- */
-function conserv_footer_cta() {
-
-    $options = get_option( 'conserv_options' );
-
-    if ( empty( $options['footer_cta'] ) ) {
-        return;
-    }
-
-    ?>
-
-    <div class="conserv-footer-cta">
-        <div class="col-full">
-
-            <?php echo wpautop( $options['footer_cta'] ); ?>
-
-        </div> <!-- /.col-full -->
-    </div> <!-- /.conserv-footer-cta -->
 
     <?php
 

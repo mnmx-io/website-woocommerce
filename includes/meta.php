@@ -16,12 +16,6 @@ function conserv_options_meta() {
         'parent_slug' => 'themes.php',
     ) );
 
-    $cmb->add_field( array(
-        'name' => esc_html__( 'Footer CTA', 'conserv' ),
-        'id' => 'footer_cta',
-        'type' => 'wysiwyg',
-    ) );
-
     $header_ctas = $cmb->add_field( array(
         'id' => 'header_ctas',
         'type' => 'group',
