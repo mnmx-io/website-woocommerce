@@ -89,6 +89,7 @@ function conserv_primary_navigation() {
 			array(
 				'theme_location'  => 'primary',
 				'container_class' => 'conserv-primary-navigation',
+                'fallback_cb' => false,
 			)
 		);
 		?>
