@@ -1,7 +1,7 @@
 /*
 Theme Name:   	Conserv Store
-Author:       	Kyle Evans
-Author URI:     https://kyleevans.io
+Author:       	Conserv
+Author URI:     https://conserv.io
 Template:     	storefront
 Description:  	Custom child theme of Storefront for Conserv
 Version: 1.2.0
@@ -266,11 +266,12 @@ body.woocommerce-active .site-header .site-branding {
 
 .site-footer {
     padding-top: 2rem;
-    background-color: #fff;
-    color: $color__text;
+    background-color: #2C4251;
+    color: #ffffff;
 
     a:not(.button) {
         text-decoration: none;
+        color: #ffffff;
     }
 
     .site-branding {
@@ -363,6 +364,38 @@ body.storefront-full-width-content.single-product div.product .summary,
     overflow: visible;
 }
 
-.variation-Linkedto {
+.update_variation_form .WOO_CK_WUVIC_thumbnail, .variation-Linkedto {
   display: none;
+}
+
+#new_row .quantity {
+  display: none;
+}
+
+.woocommerce-variation-price .woocommerce-Price-amount {
+  font-weight: 500;
+  padding-left: 1.618em;
+}
+
+#new_row span#cancel {
+  background: #2C4251 !important;
+  padding: 7px 17px !important;
+  border-radius: 5px !important;
+  font-weight: 500 !important;
+}
+
+.WOO_CK_WUVIC_buttom {
+    background-image: none !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    padding-top: .5rem !important;
+    padding-bottom: .5rem !important;
+    background-size: 12px;
+    font-size: 12px;
+    color: #ffffff !important;
+    background-color: #089CAD;
+}
+.WOO_CK_WUVIC_buttom a:hover {
+  color: #ffffff !important;
+  background-color: #2C4251;
 }

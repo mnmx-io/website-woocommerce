@@ -381,3 +381,35 @@ add_filter( 'wc_add_to_cart_message', 'remove_add_to_cart_message' );
 function remove_add_to_cart_message() {
     return;
 }
+
+//add desciption in cart
+add_filter( 'woocommerce_get_item_data', 'customizing_cart_item_data', 10, 2 );
+function customizing_cart_item_data( $cart_data, $cart_item ) {
+
+    $custom_items = array();
+    $label = __( 'Description', 'woocommerce' );
+
+    // Get the product description
+    $description = $cart_item['data']->get_description();
+
+    // For product variations when description is empty
+    if( $cart_item['data']->is_type('variation') && empty( $description ) ){
+        // Get the parent variable product object
+        $product = wc_get_product( $cart_item['data']->get_parent_id() );
+        // Get the variable product description
+        $description = $product->get_description();
+    }
+
+    // If product or variation description exists we display it
+    if( ! empty( $description ) ){
+        $custom_items[] = array(
+            'key'      => $label,
+            'display'  => $description,
+        );
+    }
+
+    // Merging description and product variation attributes + values
+    if( ! empty( $cart_data ) ) $custom_items = array_merge( $custom_items, $cart_data );
+
+    return $custom_items;
+}
