@@ -19,7 +19,6 @@ function conserv_template_setup() {
     remove_action( 'storefront_header', 'storefront_primary_navigation', 50 );
     remove_action( 'storefront_header', 'storefront_header_cart', 60 );
     remove_action( 'storefront_header', 'storefront_primary_navigation_wrapper_close', 68 );
-    add_action( 'storefront_header', 'conserv_primary_navigation', 25 );
     add_action( 'storefront_header', 'conserv_header_ctas', 30 );
 
     remove_action( 'storefront_before_content', 'woocommerce_breadcrumb', 10 );
@@ -68,29 +67,6 @@ function conserv_site_branding() {
         ?>
 
 	</div>
-
-    <?php
-
-}
-
-/**
- * Primary navigation
- */
-function conserv_primary_navigation() {
-
-    ?>
-
-    <nav id="site-navigation" class="conserv-main-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'storefront' ); ?>">
-		<?php
-		wp_nav_menu(
-			array(
-				'theme_location'  => 'primary',
-				'container_class' => 'conserv-primary-navigation',
-                'fallback_cb' => false,
-			)
-		);
-		?>
-	</nav><!-- #site-navigation -->
 
     <?php
 
