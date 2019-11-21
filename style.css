@@ -247,7 +247,7 @@ body.woocommerce-active .site-header .site-branding {
   text-decoration: none;
   color: #ffffff;
 }
-.site-footer site-info {
+.site-footer .site-info {
   display: none;
 }
 
