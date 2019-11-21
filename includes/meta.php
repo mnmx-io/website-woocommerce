@@ -18,6 +18,7 @@ function conserv_options_meta() {
 
     $header_ctas = $cmb->add_field( array(
         'id' => 'header_ctas',
+        'name' => esc_html__( 'Header Buttons', 'conserv' ),
         'type' => 'group',
         'options' => array(
             'group_title' => esc_html__( 'Button {#}', 'conserv' ),
