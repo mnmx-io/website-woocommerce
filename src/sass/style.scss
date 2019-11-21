@@ -133,7 +133,7 @@ body.woocommerce-active .site-header .site-branding {
 }
 
 .site-footer {
-    padding-top: 2rem;
+    padding: 4rem 0 2rem;
     background-color: #2C4251;
     color: #ffffff;
 
@@ -151,6 +151,53 @@ body.woocommerce-active .site-header .site-branding {
     .footer-column {
         flex: 1;
         margin: 0 1rem;
+    }
+
+    .logo-holder img {
+        display: block;
+        width: 145px;
+        margin: 0 auto;
+    }
+
+    .conserv-footer-menu {
+        margin-bottom: 20px;
+
+        .menu {
+            list-style: none;
+            display: block;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            display: block;
+            padding: 10px 20px;
+        }
+
+        a:hover {
+            color: $color__primary;
+        }
+
+        ul.menu li.current-menu-item > a {
+            color: #fff;
+
+            &:hover {
+                color: $color__primary;
+            }
+
+        }
+
+    }
+
+    @media screen and ( max-width: 767px ) {
+        display: block;
     }
 
 }

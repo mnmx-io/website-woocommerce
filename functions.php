@@ -81,7 +81,7 @@ function conserv_footer() {
 
     <div class="conserv-footer-columns">
 
-        <div class="footer-column">
+        <div class="footer-column logo-holder">
             <a href="<?php echo esc_url( $home_url ); ?>">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/conserv-logo-white.png" alt="Conserv">
             </a>
