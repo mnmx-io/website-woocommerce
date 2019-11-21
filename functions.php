@@ -16,7 +16,7 @@ function conserv_template_setup() {
     remove_action( 'storefront_header', 'storefront_primary_navigation', 50 );
     remove_action( 'storefront_header', 'storefront_header_cart', 60 );
     remove_action( 'storefront_header', 'storefront_primary_navigation_wrapper_close', 68 );
-    add_action( 'storefront_header', 'conserv_header_ctas', 30 );
+    add_action( 'storefront_header', 'conserv_shopping_cart_button', 30 );
 
     remove_action( 'storefront_before_content', 'woocommerce_breadcrumb', 10 );
 
@@ -114,29 +114,19 @@ function conserv_footer_secondary_nav() {
 }
 
 /**
- * Add header CTA
+ * Display shopping cart button
  */
-function conserv_header_ctas() {
-
-    $options = get_option( 'conserv_options' );
-
-    if ( empty( $options['header_ctas'] ) ) {
-        return;
-    }
-
-    $ctas = $options['header_ctas'];
+function conserv_shopping_cart_button() {
 
     ?>
 
-    <ul class="conserv-header-ctas">
+    <div class="conserv-shopping-cart-link-holder">
 
-        <li>
-            <a href="https://shop.conserv.io/cart/">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22"><g fill="#0E0E0E"><circle cx="19" cy="19.5" r="2.5"/><circle cx="9" cy="19.5" r="2.5"/><path d="M23.375 3.169A.501.501 0 0 0 23 3H5.01L4.49.402A.5.5 0 0 0 4 0H1a.5.5 0 0 0 0 1h2.59l2.437 12.187A3.51 3.51 0 0 0 9.459 16H21a.5.5 0 0 0 0-1H9.46a2.507 2.507 0 0 1-2.452-2.01L6.81 12h13.424a2.504 2.504 0 0 0 2.481-2.19l.781-6.248a.499.499 0 0 0-.121-.393z"/></g></svg>
-            </a>
-        </li>
+        <a href="https://shop.conserv.io/cart/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22"><g fill="#0E0E0E"><circle cx="19" cy="19.5" r="2.5"/><circle cx="9" cy="19.5" r="2.5"/><path d="M23.375 3.169A.501.501 0 0 0 23 3H5.01L4.49.402A.5.5 0 0 0 4 0H1a.5.5 0 0 0 0 1h2.59l2.437 12.187A3.51 3.51 0 0 0 9.459 16H21a.5.5 0 0 0 0-1H9.46a2.507 2.507 0 0 1-2.452-2.01L6.81 12h13.424a2.504 2.504 0 0 0 2.481-2.19l.781-6.248a.499.499 0 0 0-.121-.393z"/></g></svg>
+        </a>
 
-    </ul>
+    </div> <!-- /.conserv-shopping-cart-link-holder -->
 
     <?php
 

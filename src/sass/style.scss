@@ -115,6 +115,8 @@ body .col-full {
 
     .col-full {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .site-branding img {
@@ -124,8 +126,9 @@ body .col-full {
 }
 
 body.woocommerce-active .site-header .site-branding {
+    flex: 1;
     float: none;
-    width: auto;
+    width: 100%;
     margin-top: -1rem;
 }
 
@@ -160,14 +163,6 @@ body.woocommerce-active .site-header .site-branding {
     }
 
 }
-.conserv-main-navigation {
-    flex: 1;
-
-    ul {
-        justify-content: flex-end;
-    }
-
-}
 .conserv-footer-primary-navigation {
     font-size: 1.125rem;
 
@@ -196,32 +191,7 @@ body.woocommerce-active .site-header .site-branding {
     color: $color__text;
 }
 
-.conserv-header-ctas {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 1rem;
-    margin-top: -.50rem;
-
-    li {
-        margin: .5rem;
-        padding: 0;
-    }
-
-}
-
 @media screen and ( max-width: 980px ) {
-
-    .site-header .col-full {
-        display: block;
-    }
-
-    .site-header .site-branding img {
-        display: block;
-        margin: 0 auto;
-    }
 
     .site-header .site-logo-anchor img, .site-header .site-logo-link img, .site-header .custom-logo-link img {
         margin: 0 auto;
