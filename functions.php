@@ -2,9 +2,6 @@
 
 define( 'CONSERV_VERSION', '1.2.0' );
 
-// CMB2
-require_once dirname( __FILE__ ) . '/includes/CMB2/init.php';
-
 /**
  * Add and remove actions in Storefront template
  */
@@ -133,20 +130,6 @@ function conserv_header_ctas() {
 
     <ul class="conserv-header-ctas">
 
-        <?php foreach( $ctas as $cta ) : ?>
-
-            <?php $classes = 'button'; ?>
-
-            <?php if ( !empty( $cta['transparent_button'] ) ) $classes .= ' button-transparent'; ?>
-
-            <li>
-                <a href="<?php echo esc_url( $cta['url'] ); ?>" class="<?php echo $classes; ?>">
-                    <?php echo $cta['button_text']; ?>
-                </a>
-            </li>
-
-        <?php endforeach; ?>
-
         <li>
             <a href="https://shop.conserv.io/cart/">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22"><g fill="#0E0E0E"><circle cx="19" cy="19.5" r="2.5"/><circle cx="9" cy="19.5" r="2.5"/><path d="M23.375 3.169A.501.501 0 0 0 23 3H5.01L4.49.402A.5.5 0 0 0 4 0H1a.5.5 0 0 0 0 1h2.59l2.437 12.187A3.51 3.51 0 0 0 9.459 16H21a.5.5 0 0 0 0-1H9.46a2.507 2.507 0 0 1-2.452-2.01L6.81 12h13.424a2.504 2.504 0 0 0 2.481-2.19l.781-6.248a.499.499 0 0 0-.121-.393z"/></g></svg>
@@ -223,10 +206,6 @@ function conserv_reigster_nav_menus( $menus ) {
 
 }
 add_filter( 'storefront_register_nav_menus', 'conserv_reigster_nav_menus' );
-
-// Meta fields
-require_once dirname( __FILE__ ) . '/includes/meta.php';
-
 
 // Add multiple products to cart via URL
 function woocommerce_maybe_add_multiple_products_to_cart( $url = false ) {
