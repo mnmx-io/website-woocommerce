@@ -1,9 +1,8 @@
 <?php
 
-define( 'CONSERV_VERSION', '1.2.0' );
+define( 'CONSERV_VERSION', '1.3.2' );
 
-// CMB2
-require_once dirname( __FILE__ ) . '/includes/CMB2/init.php';
+$home_url = 'https://conserv.io';
 
 /**
  * Add and remove actions in Storefront template
@@ -19,20 +18,14 @@ function conserv_template_setup() {
     remove_action( 'storefront_header', 'storefront_primary_navigation', 50 );
     remove_action( 'storefront_header', 'storefront_header_cart', 60 );
     remove_action( 'storefront_header', 'storefront_primary_navigation_wrapper_close', 68 );
-    add_action( 'storefront_header', 'conserv_primary_navigation', 25 );
-    add_action( 'storefront_header', 'conserv_header_ctas', 30 );
+    add_action( 'storefront_header', 'conserv_shopping_cart_button', 30 );
 
     remove_action( 'storefront_before_content', 'woocommerce_breadcrumb', 10 );
 
     // Footer
     remove_action( 'storefront_footer', 'storefront_credit', 20 );
-    add_action( 'storefront_footer', 'conserv_footer_primary_nav', 10 );
-    add_action( 'storefront_footer', 'conserv_footer_secondary_nav', 20 );
-    add_action( 'storefront_footer', 'conserv_site_branding', 30 );
     remove_action( 'storefront_footer', 'storefront_handheld_footer_bar', 999 );
-
-    // Before footer
-    add_action( 'storefront_before_footer', 'conserv_footer_cta' );
+    add_action( 'storefront_footer', 'conserv_footer' );
 
     // Product page
 
@@ -44,13 +37,14 @@ add_action( 'wp_head', 'conserv_template_setup' );
  */
 function conserv_site_branding() {
 
+    global $home_url;
+
     ?>
 
     <div class="site-branding">
 
         <?php
 
-        $home_url = 'https://conserv.io';
         $logo = get_theme_mod( 'custom_logo' );
 
         if ( $logo ) {
@@ -77,134 +71,66 @@ function conserv_site_branding() {
 }
 
 /**
- * Primary navigation
+ * Conserv Footer
  */
-function conserv_primary_navigation() {
+function conserv_footer() {
+
+    global $home_url;
 
     ?>
 
-    <nav id="site-navigation" class="conserv-main-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'storefront' ); ?>">
-		<?php
-		wp_nav_menu(
-			array(
-				'theme_location'  => 'primary',
-				'container_class' => 'conserv-primary-navigation',
-			)
-		);
-		?>
-	</nav><!-- #site-navigation -->
+    <div class="conserv-footer-columns">
 
-    <?php
-
-}
-
-/**
- * Footer primary navigation
- */
-function conserv_footer_primary_nav() {
-
-    ?>
-
-    <nav class="conserv-footer-primary-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'storefront' ); ?>">
-		<?php
-		wp_nav_menu(
-			array(
-				'theme_location'  => 'footer-primary',
-				'container_class' => 'conserv-footer-primary-navigation',
-			)
-		);
-		?>
-	</nav>
-
-    <?php
-
-}
-
-/**
- * Footer secondary navigation
- */
-function conserv_footer_secondary_nav() {
-
-    ?>
-
-    <nav class="conserv-footer-secondary-navigation" role="navigation" aria-label="<?php esc_html_e( 'Secondary Navigation', 'storefront' ); ?>">
-		<?php
-		wp_nav_menu(
-			array(
-				'theme_location'  => 'footer-secondary',
-				'container_class' => 'conserv-footer-secondary-navigation',
-			)
-		);
-		?>
-	</nav>
-
-    <?php
-
-}
-
-/**
- * Add header CTA
- */
-function conserv_header_ctas() {
-
-    $options = get_option( 'conserv_options' );
-
-    if ( empty( $options['header_ctas'] ) ) {
-        return;
-    }
-
-    $ctas = $options['header_ctas'];
-
-    ?>
-
-    <ul class="conserv-header-ctas">
-
-        <?php foreach( $ctas as $cta ) : ?>
-
-            <?php $classes = 'button'; ?>
-
-            <?php if ( !empty( $cta['transparent_button'] ) ) $classes .= ' button-transparent'; ?>
-
-            <li>
-                <a href="<?php echo esc_url( $cta['url'] ); ?>" class="<?php echo $classes; ?>">
-                    <?php echo $cta['button_text']; ?>
-                </a>
-            </li>
-
-        <?php endforeach; ?>
-
-        <li>
-            <a href="https://shop.conserv.io/cart/">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22"><g fill="#0E0E0E"><circle cx="19" cy="19.5" r="2.5"/><circle cx="9" cy="19.5" r="2.5"/><path d="M23.375 3.169A.501.501 0 0 0 23 3H5.01L4.49.402A.5.5 0 0 0 4 0H1a.5.5 0 0 0 0 1h2.59l2.437 12.187A3.51 3.51 0 0 0 9.459 16H21a.5.5 0 0 0 0-1H9.46a2.507 2.507 0 0 1-2.452-2.01L6.81 12h13.424a2.504 2.504 0 0 0 2.481-2.19l.781-6.248a.499.499 0 0 0-.121-.393z"/></g></svg>
+        <div class="footer-column logo-holder">
+            <a href="<?php echo esc_url( $home_url ); ?>">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/conserv-logo-white.png" alt="Conserv">
             </a>
-        </li>
+        </div> <!-- /.site-branding -->
 
-    </ul>
+        <div class="footer-column">
+    		<?php
+    		wp_nav_menu(
+    			array(
+    				'theme_location'  => 'footer1',
+    				'container_class' => 'conserv-footer-menu',
+                    'fallback_cb' => false,
+    			)
+    		);
+    		?>
+    	</div> <!-- /.footer-column -->
+
+        <div class="footer-column">
+            <?php
+    		wp_nav_menu(
+    			array(
+    				'theme_location'  => 'footer2',
+    				'container_class' => 'conserv-footer-menu',
+                    'fallback_cb' => false,
+    			)
+    		);
+    		?>
+        </div> <!-- /.footer-column -->
+
+    </div> <!-- /.conserv-footer-columns -->
 
     <?php
 
 }
 
 /**
- * Footer CTA
+ * Display shopping cart button
  */
-function conserv_footer_cta() {
-
-    $options = get_option( 'conserv_options' );
-
-    if ( empty( $options['footer_cta'] ) ) {
-        return;
-    }
+function conserv_shopping_cart_button() {
 
     ?>
 
-    <div class="conserv-footer-cta">
-        <div class="col-full">
+    <div class="conserv-shopping-cart-link-holder">
 
-            <?php echo wpautop( $options['footer_cta'] ); ?>
+        <a href="https://shop.conserv.io/cart/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22"><g fill="#0E0E0E"><circle cx="19" cy="19.5" r="2.5"/><circle cx="9" cy="19.5" r="2.5"/><path d="M23.375 3.169A.501.501 0 0 0 23 3H5.01L4.49.402A.5.5 0 0 0 4 0H1a.5.5 0 0 0 0 1h2.59l2.437 12.187A3.51 3.51 0 0 0 9.459 16H21a.5.5 0 0 0 0-1H9.46a2.507 2.507 0 0 1-2.452-2.01L6.81 12h13.424a2.504 2.504 0 0 0 2.481-2.19l.781-6.248a.499.499 0 0 0-.121-.393z"/></g></svg>
+        </a>
 
-        </div> <!-- /.col-full -->
-    </div> <!-- /.conserv-footer-cta -->
+    </div> <!-- /.conserv-shopping-cart-link-holder -->
 
     <?php
 
@@ -267,17 +193,12 @@ add_filter( 'woocommerce_subscriptions_product_price_string', 'conserv_change_si
 function conserv_reigster_nav_menus( $menus ) {
 
     return array(
-        'primary' => __( 'Primary Menu', 'conserv' ),
-        'footer-primary' => __( 'Footer Primary Menu', 'conserv' ),
-        'footer-secondary' => __( 'Footer Secondary Menu', 'conserv2' ),
+        'footer1' => __( 'Footer - First Column', 'conserv' ),
+        'footer2' => __( 'Footer - Second Column', 'conserv2' ),
     );
 
 }
 add_filter( 'storefront_register_nav_menus', 'conserv_reigster_nav_menus' );
-
-// Meta fields
-require_once dirname( __FILE__ ) . '/includes/meta.php';
-
 
 // Add multiple products to cart via URL
 function woocommerce_maybe_add_multiple_products_to_cart( $url = false ) {
