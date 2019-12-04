@@ -282,7 +282,7 @@ require_once dirname( __FILE__ ) . '/includes/meta.php';
 // Add multiple products to cart via URL
 function woocommerce_maybe_add_multiple_products_to_cart( $url = false ) {
 	// Make sure WC is installed, and add-to-cart qauery arg exists, and contains at least one comma.
-	if ( ! class_exists( 'WC_Form_Handler' ) || empty( $_REQUEST['add-to-cart'] ) || false === strpos( $_REQUEST['add-to-cart'], ',' ) ) {
+	if ( ! class_exists( 'WC_Form_Handler' ) || empty( $_REQUEST['add-to-cart'] ) || false === strpos( $_REQUEST['add-to-cart'], ',' || sizeof( WC()->cart->get_cart() ) > 0 ) ) {
 		return;
 	}
 
