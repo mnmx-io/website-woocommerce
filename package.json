@@ -23,5 +23,18 @@
     "last 2 versions",
     "> 0.2%",
     "not dead"
-  ]
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnmx-io/website-woocommerce.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mnmx-io/website-woocommerce/issues"
+  },
+  "homepage": "https://github.com/mnmx-io/website-woocommerce#readme",
+  "dependencies": {
+    "npm-watch": "^0.6.0"
+  }
 }
